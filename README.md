@@ -9,3 +9,5 @@ Suppliers and Goods Repository, Using the 3 techonolgies: Angular 7, NodeJS, Mon
 <br>
 <b>Angular</b> files are all in Type-Sript and uses the Observable service, Models, FormsModule, ReactiveFormsModule,
 Angular-Bootstrap, and HttpClientModule.
+<br>
+http://localhost:3000/
