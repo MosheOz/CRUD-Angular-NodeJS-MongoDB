@@ -1,0 +1,18 @@
+<form #form="ngForm">
+    <h3>Delete Supplier</h3>
+    <div class="form-group">
+        <label>
+            <b>Suppliers: </b>
+        </label>
+        <br>
+        <select #id="ngModel" class="form-control" required [(ngModel)]="supplier._id" name="_id">
+            <option *ngFor="let s of suppliers" value="{{s._id}}">{{s.firstname}} {{s.lastname}}</option>
+        </select>
+        <div style="text-align: center;" *ngIf="id.errors?.required &&  id.touched" class="alert-danger">
+            Supplier is required.
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-danger" (click)="send()" [disabled]="form.form.invalid">Delete Supplier</button>
+
+</form>

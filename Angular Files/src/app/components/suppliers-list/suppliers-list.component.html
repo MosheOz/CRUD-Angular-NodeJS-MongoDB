@@ -1,0 +1,22 @@
+<h3>Suppliers List</h3>
+<table class="table table-hover" *ngIf="suppliers">
+    <thead>
+        <tr>
+            <th scope="col">first name</th>
+            <th scope="col">last name</th>
+            <th scope="col">goods</th>
+            <th scope="col">country</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr mdbTableCol *ngFor="let s of suppliers">
+            <td>{{s.firstname}}</td>
+            <td>{{s.lastname}}</td>
+            <td>{{s.goods}}</td>
+            <td>{{s.country.name}}</td>
+            <td><button type="button" class="btn btn-danger" (click)="delete(s._id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>

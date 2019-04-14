@@ -1,0 +1,43 @@
+<form #form="ngForm">
+
+    <h3>Add Supplier</h3>
+
+    <div class="form-group">
+        <input class="form-control" required #firstname="ngModel" type="text" [(ngModel)]="newSupplier.firstname" placeholder="first name"
+            name="firstname">
+        <div style="text-align: center;" *ngIf="firstname.errors?.required &&  firstname.touched" class="alert-danger">
+            First Name is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input class="form-control" required #lastname="ngModel" type="text" [(ngModel)]="newSupplier.lastname" placeholder="last name"
+            name="lastname">
+        <div style="text-align: center;" *ngIf="lastname.errors?.required &&  lastname.touched" class="alert-danger">
+            Last Name is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input class="form-control" required #goods="ngModel" type="text" [(ngModel)]="newSupplier.goods" placeholder="goods" name="goods">
+        <div style="text-align: center;" *ngIf="goods.errors?.required &&  goods.touched" class="alert-danger">
+            Goods is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>
+            <b>Countries: </b>
+        </label>
+        <br>
+        <select #country="ngModel" class="form-control" required [(ngModel)]="newSupplier.country" name="country">
+            <option *ngFor="let c of countries" value="{{c._id}}">{{c.name}}</option>
+        </select>
+        <div style="text-align: center;" *ngIf="country.errors?.required &&  country.touched" class="alert-danger">
+            Country is required.
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="send()" [disabled]="form.form.invalid">Add Supplier</button>
+
+</form>
